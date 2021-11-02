@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "id": 5,
+      "name": "Roshan",
+      "email": "roshan@gmail.com",
+      "username": "ROSHMOD",
+      "password": "roshan123#",
+      "mobile": "8767378799"
+    }
+  ],
+  "hospitals": [
+    {
+      "id": 4,
+      "hospitalName": "Kims",
+      "address": "1-121/3a, road no-6,Jubillie Hills",
+      "city": "Hyderabad",
+      "beds": 12,
+      "icuBeds": 2,
+      "contact": "7238903828"
+    },
+    {
+      "id": 5,
+      "hospitalName": "Apolo",
+      "address": "rd.no-4, White Field, Bangalore",
+      "city": "Bangalore",
+      "beds": 10,
+      "icuBeds": 4,
+      "contact": "9973773872"
+    },
+    {
+      "id": 6,
+      "hospitalName": "Apolo",
+      "address": "rd.no-2,madhapur,Hyderabad",
+      "city": "Hyderabad",
+      "beds": 12,
+      "icuBeds": 4,
+      "contact": "79732837838"
+    }
+  ],
+  "bookings": []
+}

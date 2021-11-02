@@ -1,0 +1,81 @@
+<div class="text-center alert bg-primary text-light mt-4 container">
+  New User Registeration
+</div>
+<div class="container text-light p-3 bg-dark">
+  <form [formGroup]="formValue" class="needs-validation">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        placeholder="Enter Full Name"
+        required
+      />
+      <small *ngIf="name?.invalid && name?.touched" class="text-danger"
+        >Name is Required</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Email Id</label>
+      <input
+        type="email"
+        class="form-control"
+        aria-describedby="emailHelp"
+        placeholder="Enter Email Id"
+        formControlName="email"
+        required
+      />
+      <small *ngIf="email?.invalid && email?.touched" class="text-danger"
+        >Email is Required</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">User Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="User Name"
+        formControlName="username"
+        required
+      />
+      <small *ngIf="username?.invalid && username?.touched" class="text-danger">
+        username is required</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        formControlName="password"
+        required
+      />
+      <small *ngIf="password?.invalid && password?.touched" class="text-danger">
+        password required</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mobile</label>
+      <input
+        type="moblie"
+        class="form-control"
+        placeholder="Mobile"
+        formControlName="mobile"
+        required
+      />
+      <small *ngIf="mobile?.invalid && mobile?.touched" class="text-danger"
+        >Phone no is Required(minimum length 10,numbers are only allowed)</small
+      >
+    </div>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="postUserDetails()"
+      [disabled]="formValue.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,226 @@
+<nav class="navbar navbar-light alert alert-primary">
+  <span class="navbar-brand mb-0 h1">Admin Dashboard</span>
+  <div class="spacer"></div>
+  <button type="button" class="bg-dark text-light mr-2" (click)="getDetails()">
+    Users
+  </button>
+  <button
+    type="button"
+    class="bg-dark text-light"
+    (click)="goToCreateHospital()"
+  >
+    Create Hospital
+  </button>
+</nav>
+
+<div class="form-control">
+  <input
+    type="text"
+    class="form-control alert alert-dark"
+    placeholder="Search by City"
+    [(ngModel)]="city"
+  />
+
+  <button type="button" class="btn btn-success" (click)="getHospitals()">
+    Search
+  </button>
+</div>
+
+<br />
+<table class="table container">
+  <!-- <thead class="bg-warning">
+    <tr>
+      <th scope="col">Hospital</th>
+      <th scope="col">Address</th>
+      <th scope="col">city</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Details</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of hospitalData" class="bg-dark text-light">
+      <td>{{ row.hospitalName }}</td>
+      <td>{{ row.address }}</td>
+      <td>{{ row.city }}</td>
+      <td>{{ row.contact }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="getHospitalDetails(row)"
+        >
+          Details
+        </button>
+      </td>
+
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          (click)="onEdit(row)"
+        >
+          Edit
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteHospital(row)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody> -->
+  <tr *ngFor="let row of hospitalData" class="container">
+    <td>
+      <div class="card">
+        <div class="card-header bg-dark text-light">
+          <strong>Hospital: </strong>
+          {{ row.hospitalName | uppercase }}
+        </div>
+        <div class="card-body alert alert-primary text-dark">
+          <h5 class="card-title">
+            <strong>Address:</strong> {{ row.address }}
+          </h5>
+          <h5 class="card-title"><strong>City:</strong> {{ row.city }}</h5>
+          <h5 class="card-title">
+            <strong>Bed Capacity:</strong> {{ row.beds }}
+          </h5>
+          <h5 class="card-title">
+            <strong>ICU Beds:</strong> {{ row.icuBeds }}
+          </h5>
+          <h5 class="card-title">
+            <strong>Contact Details:</strong> {{ row.contact }}
+          </h5>
+          <button
+            type="button"
+            class="btn btn-secondary mr-2"
+            (click)="getHospitalDetails(row)"
+          >
+            Details
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary mr-2"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="onEdit(row)"
+          >
+            Edit
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteHospital(row)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Hospital Name</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="hospitalName"
+              placeholder="Enter Hospital Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Address</label>
+            <input
+              type="address"
+              class="form-control"
+              placeholder="Enter Address"
+              formControlName="address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">City</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter City"
+              formControlName="city"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Beds</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Beds"
+              formControlName="beds"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">ICU Beds</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="Icu Beds"
+              formControlName="icuBeds"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contact Details</label>
+            <input
+              type="moblie"
+              class="form-control"
+              placeholder="Contact"
+              formControlName="contact"
+              required
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="updateHospitalDetails()"
+        >
+          update
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

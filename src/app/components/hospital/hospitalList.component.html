@@ -1,0 +1,85 @@
+<div class="form-control">
+  <span>
+    <input
+      type="text"
+      class="form-control alert alert-dark"
+      placeholder="Seach Hospital by city"
+      [(ngModel)]="city"
+    />
+  </span>
+
+  <button type="button" class="btn btn-success" (click)="getHospitals()">
+    Search
+  </button>
+</div>
+<br />
+<table class="table container">
+  <!-- <thead class="bg-warning">
+    <tr>
+      <th scope="col">Hospital</th>
+      <th scope="col">Address</th>
+      <th scope="col">city</th>
+      <th scope="col">Contact</th>
+      <th scope="col">Details</th>
+      <th scope="col">Book a Bed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of hospitalData" class="bg-dark text-light">
+      <td>{{ row.hospitalName }}</td>
+      <td>{{ row.address }}</td>
+      <td>{{ row.city }}</td>
+      <td>{{ row.contact }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="getHospitalDetails(row)"
+        >
+          Details
+        </button>
+      </td>
+
+      <td>
+        <button type="button" class="btn btn-primary" (click)="getBed()">
+          Book a Bed
+        </button>
+      </td>
+    </tr>
+  </tbody> -->
+  <tr *ngFor="let row of hospitalData" class="container">
+    <td>
+      <div class="card">
+        <div class="card-header bg-dark text-light">
+          <strong>Hospital: </strong>
+          {{ row.hospitalName | uppercase }}
+        </div>
+        <div class="card-body alert alert-primary text-dark">
+          <h5 class="card-title">
+            <strong>Address:</strong> {{ row.address }}
+          </h5>
+          <h5 class="card-title"><strong>City:</strong> {{ row.city }}</h5>
+          <h5 class="card-title">
+            <strong>Bed Capacity:</strong> {{ row.beds }}
+          </h5>
+          <h5 class="card-title">
+            <strong>ICU Beds:</strong> {{ row.icuBeds }}
+          </h5>
+          <h5 class="card-title">
+            <strong>Contact Details:</strong> {{ row.contact }}
+          </h5>
+          <button
+            type="button"
+            class="btn btn-secondary mr-2"
+            (click)="getHospitalDetails(row)"
+          >
+            Details
+          </button>
+          <button type="button" class="btn btn-primary" (click)="getBed()">
+            Book a Bed
+          </button>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
